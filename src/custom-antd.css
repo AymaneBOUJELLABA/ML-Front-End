@@ -23,6 +23,7 @@
 /* stylelint-disable at-rule-no-unknown */
 html,
 body {
+  background-color: #F0EFF4;
   width: 100%;
   height: 100%;
 }
@@ -53,7 +54,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-variant: tabular-nums;
   line-height: 1.5715;
-  background-color: #fff;
+  background-color: #F0EFF4;
   font-feature-settings: 'tnum';
 }
 [tabindex='-1']:focus {
@@ -15568,6 +15569,7 @@ textarea.ant-mentions {
 .ant-menu-item:active,
 .ant-menu-submenu-title:active {
   background: #e6f5ea;
+  color: #2BB55C;
 }
 .ant-menu-submenu .ant-menu-sub {
   cursor: initial;
@@ -15577,7 +15579,7 @@ textarea.ant-mentions {
   color: rgba(0, 0, 0, 0.85);
 }
 .ant-menu-item a:hover {
-  color: #1BB55C;
+  color: #2BB55C;
 }
 .ant-menu-item a::before {
   position: absolute;
@@ -15600,12 +15602,13 @@ textarea.ant-mentions {
   line-height: 0;
   background-color: #f0f0f0;
 }
+
 .ant-menu-item:hover,
 .ant-menu-item-active,
 .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
 .ant-menu-submenu-active,
 .ant-menu-submenu-title:hover {
-  color: #1BB55C;
+  color: #2BB55C;
 }
 .ant-menu-horizontal .ant-menu-item,
 .ant-menu-horizontal .ant-menu-submenu {

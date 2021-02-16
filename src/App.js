@@ -3,17 +3,34 @@ import PageHeader from './components/PageHeader'
 import PageNLP from './components/PageNLP';
 import { Space ,Layout, Menu, Breadcrumb } from 'antd';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <Layout className="layout" style={{height:"100vh",textAlign: 'center'}}>
+    <Layout className="layout" style={{height:"100vh",textAlign: 'center',backgroundColor:"#F0EFF4"}}>
       <Header>
-        <PageHeader />
+          <PageHeader />
       </Header>
-      <Content style={{height:"100%",marginTop:"2.5%" ,padding: '0 50px' }}>
+      <Content style={{height:"100%",marginTop:"2.5%",padding:"0 150px"}}>
         <div className="site-layout-content">
-          <PageNLP />
+        <Switch>
+            <Route path="/NLP">
+              <PageNLP />
+            </Route>
+            <Route path="/Fake-news">
+                THIS IS FAKE NEWS
+            </Route>
+            <Route path="/Detect-Emotion">
+                THIS IS AN EMOTION PAGE
+            </Route>
+        </Switch>
         </div>
     </Content>
     <br />
