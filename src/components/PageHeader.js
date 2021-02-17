@@ -27,9 +27,13 @@ const menuStyle = {
 
 class PageHeader extends React.Component
 {
+    state = {
+        select : ''
+    }
+
     render() {
         return (
-            <Menu theme="dark" style={menuStyle} mode="horizontal" defaultSelectedKeys={['/NLP']}>
+            <Menu theme="dark" style={menuStyle} mode="horizontal">
                 <Menu.Item key="/NLP">
                     <NavLink activeStyle={style} to="/NLP">NLP</NavLink>
                 </Menu.Item>

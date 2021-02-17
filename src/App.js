@@ -1,6 +1,7 @@
 import './App.css';
-import PageHeader from './components/PageHeader'
+import PageHeader from './components/PageHeader';
 import PageNLP from './components/PageNLP';
+import PageDetectEmotion from './components/PageDetectEmotion';
 import { Space ,Layout, Menu, Breadcrumb } from 'antd';
 
 import {
@@ -14,7 +15,7 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <Layout className="layout" style={{height:"100vh",textAlign: 'center',backgroundColor:"#F0EFF4"}}>
+    <Layout className="layout" style={{position:"sticky",height:"100vh",textAlign: 'center',backgroundColor:"#F0EFF4"}}>
       <Header>
           <PageHeader />
       </Header>
@@ -25,17 +26,17 @@ function App() {
               <PageNLP />
             </Route>
             <Route path="/Fake-news">
-                THIS IS FAKE NEWS
+              FAKE NEWS
             </Route>
             <Route path="/Detect-Emotion">
-                THIS IS AN EMOTION PAGE
+              <PageDetectEmotion />
             </Route>
         </Switch>
         </div>
     </Content>
     <br />
     <br />
-      <Footer style={{textAlign:"center"}}>
+      <Footer style={{position:"sticky",textAlign:"center"}}>
         Fake-news-Detection by B.Aymane | A.Ferdaous | K.Mouad ©2021
       </Footer>
   </Layout>
