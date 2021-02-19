@@ -5,7 +5,8 @@ import PageDetectEmotion from "./components/PageDetectEmotion";
 import PageDetectFakeNews from "./components/PageDetectFakeNews";
 import { Layout } from "antd";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
+import PageFakeNewsHistory from "./components/PageFakeNewsHistory";
 
 const { Header, Content, Footer } = Layout;
 
@@ -26,6 +27,12 @@ function App() {
       >
         <div className="site-layout-content">
           <Switch>
+            <Route path="/" exact>
+              <Redirect to="/Fake-news-history" />
+            </Route>
+            <Route path="/Fake-news-history">
+              <PageFakeNewsHistory />
+            </Route>
             <Route path="/NLP">
               <PageNLP />
             </Route>
