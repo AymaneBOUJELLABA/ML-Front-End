@@ -4,30 +4,27 @@ import {
   Form,
   Input,
   Button,
-  Select,
   Divider,
   Row,
   Col,
   Alert,
 } from "antd";
-import EmotionService from "../services/EmotionService";
+import FakeNewsService from "../services/FakeNewsService";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { TextArea } = Input;
-const { Option } = Select;
 
-class PageDetectEmotion extends React.Component {
+class PageDetectFakeNews extends React.Component {
   formRef = React.createRef();
 
   state = {
-    emotion: "",
+    result: "",
     text: "",
   };
   onFinish = () => {
-    EmotionService.detectemotion(this.state.text).then((response) => {
-      this.setState({ emotion: response.data.data });
+    FakeNewsService.detectFakeNews(this.state.text).then((response) => {
+      this.setState({ result: response.data.isFake });
     });
-    console.log(this.state.emotion);
   };
 
   onReset = () => {
@@ -41,7 +38,7 @@ class PageDetectEmotion extends React.Component {
     const { value } = this.state.text;
     return (
       <>
-        <Title>Text Emotion Detection</Title>
+        <Title>Fake News Detection</Title>
         <Form ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
           <Divider
             plain
@@ -57,7 +54,7 @@ class PageDetectEmotion extends React.Component {
                 <TextArea
                   Value={value}
                   onChange={this.onChange}
-                  placeholder="Insert Text to process"
+                  placeholder="Insert text to process"
                   autoSize={{ minRows: 5, maxRows: 13 }}
                   showCount
                 />
@@ -70,38 +67,29 @@ class PageDetectEmotion extends React.Component {
             orientation="left"
             type="horizontal"
           >
-            Emotion
+            Result
           </Divider>
           <Row style={{ textAlign: "left" }}>
             <Col
               style={
-                this.state.emotion
+                this.state.result
                   ? { visibility: "visible" }
                   : { visibility: "hidden" }
               }
               span={8}
             >
-              {this.state.emotion == "positive" && (
+              {this.state.result === "FAKE" ? (
                 <Alert
-                  message="Positive"
-                  type="success"
-                  description="a positive comment"
-                  showIcon
-                />
-              )}
-              {this.state.emotion == "neutral" && (
-                <Alert
-                  message="Neutral"
+                  message="Fake"
                   type="warning"
-                  description="a neutral comment"
+                  description="Our model thinks this article is fake."
                   showIcon
                 />
-              )}
-              {this.state.emotion == "negative" && (
+              ) : (
                 <Alert
-                  message="Negative"
-                  type="error"
-                  description="a negative comment"
+                  message="Real"
+                  type="success"
+                  description="Our model thinks this article isn't fake."
                   showIcon
                 />
               )}
@@ -131,4 +119,4 @@ class PageDetectEmotion extends React.Component {
   }
 }
 
-export default PageDetectEmotion;
+export default PageDetectFakeNews;
